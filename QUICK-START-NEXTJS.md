@@ -5,12 +5,14 @@ Get your Next.js frontend connected to WordPress in 5 minutes.
 ## Step 1: WordPress Setup (5 min)
 
 1. **Install Plugins**:
+
    - WPGraphQL
    - Advanced Custom Fields (ACF)
    - WPGraphQL for ACF
    - Rank Math SEO
 
 2. **Create ACF Field Group**:
+
    - Name: "Page Settings"
    - Add 3 fields:
      - `hero_heading` (Text) → GraphQL name: `heroHeading`
@@ -20,6 +22,7 @@ Get your Next.js frontend connected to WordPress in 5 minutes.
    - Set location: Show if Post Type = Page
 
 3. **Create Pages**:
+
    - Home (slug: `home`)
    - Services (slug: `services`)
    - About (slug: `about`)
@@ -36,11 +39,13 @@ Get your Next.js frontend connected to WordPress in 5 minutes.
 ## Step 2: Next.js Setup (3 min)
 
 1. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 2. **Create `.env.local`**:
+
    ```env
    NEXT_PUBLIC_WORDPRESS_URL=https://your-wordpress-site.com
    NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL=https://your-wordpress-site.com/graphql
@@ -49,6 +54,7 @@ Get your Next.js frontend connected to WordPress in 5 minutes.
    ```
 
 3. **Run dev server**:
+
    ```bash
    npm run dev
    ```
@@ -71,16 +77,19 @@ Get your Next.js frontend connected to WordPress in 5 minutes.
 ## Troubleshooting
 
 **GraphQL errors?**
+
 - Check WordPress plugins are activated
 - Verify GraphQL endpoint: `/graphql`
 - Test query in GraphQL playground
 
 **ACF fields not showing?**
+
 - Check "Show in GraphQL" is enabled
 - Verify GraphQL field names (camelCase)
 - Ensure WPGraphQL for ACF is activated
 
 **Content not updating?**
+
 - Clear Next.js cache: `rm -rf .next`
 - Rebuild: `npm run build`
 - Check WordPress page is published
@@ -93,10 +102,7 @@ Get your Next.js frontend connected to WordPress in 5 minutes.
 - Deploy to production
 
 See full documentation:
+
 - [NEXTJS-SETUP.md](./NEXTJS-SETUP.md) - Detailed Next.js setup
 - [WORDPRESS-SETUP.md](./WORDPRESS-SETUP.md) - Detailed WordPress setup
 - [README-NEXTJS.md](./README-NEXTJS.md) - Project overview
-
-
-
-

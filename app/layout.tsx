@@ -15,7 +15,8 @@ export const metadata: Metadata = {
   description:
     "Professional digital marketing services for landscaping companies. Get found by homeowners, generate qualified leads, and book more jobs.",
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://landscapingdigitalmarketing.com"
+    process.env.NEXT_PUBLIC_SITE_URL ||
+      "https://landscapingdigitalmarketing.com"
   ),
   verification: {
     google: "UWWKeuL7A4m7rwlff6S3ypQcm0NwgqUlBLv1y72Ojgk",
