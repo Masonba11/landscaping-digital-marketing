@@ -194,7 +194,13 @@ export default function Header() {
                       key={service.slug}
                       href={`/${service.slug}`}
                       className="mobile-menu-subitem"
-                      onClick={closeMobileMenu}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        closeMobileMenu();
+                        setTimeout(() => {
+                          window.location.href = `/${service.slug}`;
+                        }, 100);
+                      }}
                     >
                       {service.name}
                     </Link>
@@ -202,7 +208,13 @@ export default function Header() {
                   <Link
                     href="/services"
                     className="mobile-menu-subitem mobile-menu-subitem-all"
-                    onClick={closeMobileMenu}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      closeMobileMenu();
+                      setTimeout(() => {
+                        window.location.href = "/services";
+                      }, 100);
+                    }}
                   >
                     View All Services →
                   </Link>
@@ -213,7 +225,13 @@ export default function Header() {
             <Link
               href="/about"
               className="mobile-menu-item"
-              onClick={closeMobileMenu}
+              onClick={(e) => {
+                e.preventDefault();
+                closeMobileMenu();
+                setTimeout(() => {
+                  window.location.href = "/about";
+                }, 100);
+              }}
             >
               About
             </Link>
@@ -221,7 +239,13 @@ export default function Header() {
             <Link
               href="/contact"
               className="mobile-menu-item mobile-menu-cta"
-              onClick={closeMobileMenu}
+              onClick={(e) => {
+                e.preventDefault();
+                closeMobileMenu();
+                setTimeout(() => {
+                  window.location.href = "/contact";
+                }, 100);
+              }}
             >
               Contact
             </Link>

@@ -174,7 +174,7 @@ export function getServiceFallbackContent(slug: string): ServiceContent | null {
           <p>Landscaping website development is the process of creating a professional, high-converting website specifically designed for landscaping companies. Your website is often the first impression potential customers have of your business, so it needs to showcase your work, build trust, and make it easy for homeowners to request quotes.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; max-width: 100%;">
+        <div class="service-features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; max-width: 100%;">
           <div>
             <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem; font-size: 1.25rem;">Modern Design</h3>
             <p style="margin: 0; font-size: 0.95rem;">Beautiful, modern websites that reflect the quality of your landscaping work. Clean, professional designs built specifically for landscaping companies.</p>
@@ -201,7 +201,7 @@ export function getServiceFallbackContent(slug: string): ServiceContent | null {
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; margin: 2rem 0; max-width: 100%;">
+        <div class="service-info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; margin: 2rem 0; max-width: 100%;">
           <div>
             <h2 style="margin-top: 0;">Why You Need a Professional Website</h2>
             <ul class="benefits-list" style="margin: 0;">
@@ -261,7 +261,7 @@ export function getServiceFallbackContent(slug: string): ServiceContent | null {
 
         <div id="examples-of-our-work" style="margin: 3rem 0;">
           <h2 style="text-align: center; margin-bottom: 2rem;">Examples of Our Work</h2>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+          <div class="examples-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
             <a href="https://www.queencreekyardpros.com/" target="_blank" rel="noopener noreferrer" class="example-card" style="display: block; padding: 2rem; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; text-decoration: none; transition: all 0.4s ease; box-shadow: var(--shadow-sm);">
               <h3 style="color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.5rem;">Queen Creek Yard Pros</h3>
               <p style="margin: 0; color: var(--dark-gray); line-height: 1.7; margin-bottom: 1rem;">A website we developed to connect homeowners with qualified landscaping contractors in Queen Creek and surrounding areas.</p>
