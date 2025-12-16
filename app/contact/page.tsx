@@ -15,10 +15,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <HeroVideo
-        heading={heroHeading}
-        subheading={heroSubheading}
-      />
+      <HeroVideo heading={heroHeading} subheading={heroSubheading} />
 
       <div id="contact-form" className="container">
         <ContactForm />

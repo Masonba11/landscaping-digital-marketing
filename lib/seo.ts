@@ -37,5 +37,8 @@ export function generatePageMetadata(
 }
 
 export function generateHomeMetadata(): Metadata {
-  return generatePageMetadata("Landscaping Digital Marketing", defaultDescription);
+  return generatePageMetadata(
+    "Landscaping Digital Marketing",
+    defaultDescription
+  );
 }

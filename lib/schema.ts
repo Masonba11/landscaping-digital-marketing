@@ -1,4 +1,3 @@
-
 const siteName = "Landscaping Digital Marketing";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://landscapingdigitalmarketing.com";

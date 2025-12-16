@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ContactFormSimple() {
+  const router = useRouter();
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
@@ -36,11 +38,8 @@ export default function ContactFormSimple() {
       const data = await response.json();
 
       if (data.success) {
-        setStatus("success");
-        setMessage(
-          "Thank you! Your message has been sent. We will get back to you soon."
-        );
-        form.reset();
+        // Redirect to thank you page
+        router.push("/thank-you");
       } else {
         setStatus("error");
         setMessage(

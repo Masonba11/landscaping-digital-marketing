@@ -1,8 +1,10 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function ContactFormWebsites() {
+  const router = useRouter()
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
   const [hasWebsite, setHasWebsite] = useState<string>('')
@@ -30,10 +32,8 @@ export default function ContactFormWebsites() {
       const data = await response.json()
 
       if (data.success) {
-        setStatus('success')
-        setMessage('Thank you! Your message has been sent. We will get back to you soon.')
-        form.reset()
-        setHasWebsite('')
+        // Redirect to thank you page
+        router.push('/thank-you')
       } else {
         setStatus('error')
         setMessage('Something went wrong. Please try again or contact us directly.')
