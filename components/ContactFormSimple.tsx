@@ -1,46 +1,59 @@
-'use client'
+"use client";
 
-import { useState, FormEvent } from 'react'
+import { useState, FormEvent } from "react";
 
 export default function ContactFormSimple() {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [message, setMessage] = useState('')
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [message, setMessage] = useState("");
 
-  const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '6e25b526-dc74-441a-a8a0-0a266538ef42'
+  const accessKey =
+    process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+    "6e25b526-dc74-441a-a8a0-0a266538ef42";
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setStatus('loading')
-    setMessage('')
+    e.preventDefault();
+    setStatus("loading");
+    setMessage("");
 
-    const form = e.currentTarget
-    const formData = new FormData(form)
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     // Add Web3Forms access key
-    formData.append('access_key', accessKey)
-    formData.append('subject', 'Contact Form Submission - Landscape Digital Marketing')
+    formData.append("access_key", accessKey);
+    formData.append(
+      "subject",
+      "Contact Form Submission - Landscape Digital Marketing"
+    );
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
         body: formData,
-      })
+      });
 
-      const data = await response.json()
+      const data = await response.json();
 
       if (data.success) {
-        setStatus('success')
-        setMessage('Thank you! Your message has been sent. We will get back to you soon.')
-        form.reset()
+        setStatus("success");
+        setMessage(
+          "Thank you! Your message has been sent. We will get back to you soon."
+        );
+        form.reset();
       } else {
-        setStatus('error')
-        setMessage('Something went wrong. Please try again or contact us directly.')
+        setStatus("error");
+        setMessage(
+          "Something went wrong. Please try again or contact us directly."
+        );
       }
     } catch (error) {
-      setStatus('error')
-      setMessage('Something went wrong. Please try again or contact us directly.')
+      setStatus("error");
+      setMessage(
+        "Something went wrong. Please try again or contact us directly."
+      );
     }
-  }
+  };
 
   return (
     <form className="contact-form-simple" onSubmit={handleSubmit}>
@@ -152,23 +165,37 @@ export default function ContactFormSimple() {
             className="form-checkbox-input"
           />
           <span className="form-checkbox-label">
-            I understand that our minimum monthly investment is $2,000 (this includes compensation for all the services we&apos;d perform and the total ad spend your business would need). <span className="required">*</span>
+            I understand that our minimum monthly investment is $2,000 (this
+            includes compensation for all the services we&apos;d perform and the
+            total ad spend your business would need).{" "}
+            <span className="required">*</span>
           </span>
         </label>
       </div>
 
-      <input type="hidden" name="from_name" value="Landscape Digital Marketing Contact Form" />
+      <input
+        type="hidden"
+        name="from_name"
+        value="Landscape Digital Marketing Contact Form"
+      />
 
       {message && (
-        <div className={`form-message ${status === 'success' ? 'success' : 'error'}`}>
+        <div
+          className={`form-message ${
+            status === "success" ? "success" : "error"
+          }`}
+        >
           {message}
         </div>
       )}
 
-      <button type="submit" className="cta-button form-submit" disabled={status === 'loading'}>
-        {status === 'loading' ? 'Sending...' : 'Get Started'}
+      <button
+        type="submit"
+        className="cta-button form-submit"
+        disabled={status === "loading"}
+      >
+        {status === "loading" ? "Sending..." : "Get Started"}
       </button>
     </form>
-  )
+  );
 }
-

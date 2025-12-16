@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { getPageByUri } from "@/lib/wordpress";
-import { generatePageMetadata } from "@/lib/seo";
 import ContentRenderer from "@/components/ContentRenderer";
 import ServiceCTA from "@/components/ServiceCTA";
 import CaseStudy from "@/components/CaseStudy";
@@ -9,23 +7,15 @@ import HeroVideo from "@/components/HeroVideo";
 import ContactFormSimple from "@/components/ContactFormSimple";
 import H1CTAs from "@/components/H1CTAs";
 
-// Generate metadata using WordPress ACF fields
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageByUri("home");
-  return generatePageMetadata(page, "Landscaping Digital Marketing");
-}
+export const metadata: Metadata = {
+  title: "Landscaping Digital Marketing",
+  description:
+    "Professional digital marketing services for landscaping companies. Get found by homeowners, generate qualified leads, and book more jobs.",
+};
 
-export default async function HomePage() {
-  // Fetch home page from WordPress by URI
-  const page = await getPageByUri("home");
-
-  // Extract ACF fields with graceful fallbacks
-  const pageHeadline = page?.acfFields?.pageHeadline;
-  const pageBody = page?.acfFields?.pageBody;
-  const heroHeading =
-    page?.acfFields?.heroHeading || "Landscaping Digital Marketing";
+export default function HomePage() {
+  const heroHeading = "Landscaping Digital Marketing";
   const heroSubheading =
-    page?.acfFields?.heroSubheading ||
     "We help landscaping companies grow their business with proven digital marketing strategies. Get found by homeowners searching for your services, generate qualified leads, and book more jobs.";
 
   return (
@@ -33,18 +23,8 @@ export default async function HomePage() {
       <HeroVideo heading={heroHeading} subheading={heroSubheading} />
 
       <div className="container">
-        {/* Render pageHeadline as h1 if provided */}
-        {pageHeadline && <h1>{pageHeadline}</h1>}
-
-        {/* Render pageBody with dangerouslySetInnerHTML if provided */}
-        {pageBody ? (
-          <div
-            className="content"
-            dangerouslySetInnerHTML={{ __html: pageBody }}
-          />
-        ) : (
-          <div className="content">
-            <h2>Our Landscaping Digital Marketing Services</h2>
+        <div className="content">
+          <h2>Our Landscaping Digital Marketing Services</h2>
             <p>
               We offer comprehensive digital marketing solutions specifically
               designed for landscaping companies. Our services work together to
@@ -107,8 +87,8 @@ export default async function HomePage() {
               </li>
               <li>
                 <strong>Reach customers actively searching:</strong> Show up
-                when homeowners type &quot;landscaper near me&quot; or &quot;lawn care
-                services&quot;
+                when homeowners type &quot;landscaper near me&quot; or
+                &quot;lawn care services&quot;
               </li>
               <li>
                 <strong>Compete with larger companies:</strong> Level the
@@ -149,20 +129,19 @@ export default async function HomePage() {
                 sound good)
               </li>
               <li>
-                We create content that speaks to homeowners&apos; real concerns about
-                their yards
+                We create content that speaks to homeowners&apos; real concerns
+                about their yards
               </li>
               <li>
                 We track metrics that matter: phone calls, quote requests, and
                 booked jobs—not just website visits
               </li>
               <li>
-                We&apos;ve tested what works for landscapers and what doesn&apos;t, so you
-                don&apos;t waste money on experiments
+                We&apos;ve tested what works for landscapers and what
+                doesn&apos;t, so you don&apos;t waste money on experiments
               </li>
             </ul>
           </div>
-        )}
       </div>
 
       <CaseStudy />

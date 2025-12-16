@@ -1,4 +1,3 @@
-import { WordPressPage } from "./wordpress";
 
 const siteName = "Landscaping Digital Marketing";
 const siteUrl =
@@ -152,7 +151,18 @@ export function generateCombinedSchema(): Array<
   return [generateLocalBusinessSchema(), ...generateAllServiceSchemas()];
 }
 
-export function generateServiceSchema(page: WordPressPage): ServiceSchema {
+export function generateServiceSchema(page: {
+  id: string;
+  title: string;
+  slug: string;
+  uri?: string;
+  content?: string;
+  seo?: {
+    title?: string;
+    metaDesc?: string;
+    canonical?: string;
+  };
+}): ServiceSchema {
   const description = page.content
     ? page.content.replace(/<[^>]*>/g, "").substring(0, 200) + "..."
     : page.seo?.metaDesc ||

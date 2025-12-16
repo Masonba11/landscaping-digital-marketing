@@ -1,6 +1,4 @@
 import { Metadata } from "next";
-import { getPageBySlug } from "@/lib/wordpress";
-import { generatePageMetadata } from "@/lib/seo";
 import ContentRenderer from "@/components/ContentRenderer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ServiceCTA from "@/components/ServiceCTA";
@@ -9,36 +7,29 @@ import HeroVideo from "@/components/HeroVideo";
 import ContactFormSimple from "@/components/ContactFormSimple";
 import H1CTAs from "@/components/H1CTAs";
 
-export const metadata: Metadata = generatePageMetadata(
-  await getPageBySlug("about"),
-  "About Us"
-);
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "A specialized digital marketing agency built exclusively for landscaping companies.",
+};
 
-export default async function AboutPage() {
-  const page = await getPageBySlug("about");
-
+export default function AboutPage() {
   const breadcrumbItems = [
     { name: "Home", url: "/" },
     { name: "About", url: "/about" },
   ];
 
-  const heroHeading = page?.acfFields?.heroHeading || "About Us"
-  const heroSubheading = page?.acfFields?.heroSubheading || "A specialized digital marketing agency built exclusively for landscaping companies."
+  const heroHeading = "About Us";
+  const heroSubheading =
+    "A specialized digital marketing agency built exclusively for landscaping companies.";
 
   return (
     <>
-      <HeroVideo
-        heading={heroHeading}
-        subheading={heroSubheading}
-      />
+      <HeroVideo heading={heroHeading} subheading={heroSubheading} />
 
       <div className="container">
         <div className="content">
-
-          {page?.content ? (
-            <ContentRenderer content={page.content} />
-          ) : (
-            <>
+          <>
               <h2>Who We Are</h2>
               <p>
                 Landscape Digital Marketing is a specialized digital marketing
@@ -82,8 +73,8 @@ export default async function AboutPage() {
                   and booked jobs
                 </li>
                 <li>
-                  What works for landscapers and what doesn&apos;t (so you don&apos;t
-                  waste money on experiments)
+                  What works for landscapers and what doesn&apos;t (so you
+                  don&apos;t waste money on experiments)
                 </li>
               </ul>
 
@@ -97,12 +88,11 @@ export default async function AboutPage() {
               </p>
 
               <p>
-                We&apos;re not here to give you generic business advice. We&apos;re here
-                to help you get found by homeowners, generate qualified leads,
-                and book more jobs.
+                We&apos;re not here to give you generic business advice.
+                We&apos;re here to help you get found by homeowners, generate
+                qualified leads, and book more jobs.
               </p>
             </>
-          )}
         </div>
       </div>
 
