@@ -1,8 +1,10 @@
 'use client'
 
-import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function H1CTAs() {
+  const pathname = usePathname()
+  
   const scrollToSection = (sectionId: string, offset: number = 100) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -16,12 +18,20 @@ export default function H1CTAs() {
     }
   }
 
-  const handleViewExamples = () => {
-    // Try examples section first, fallback to case study
-    const examplesSection = document.getElementById('examples-of-our-work')
-    if (examplesSection) {
-      scrollToSection('examples-of-our-work', 120)
+  // Check if we're on the website development page
+  const isWebsiteDevelopmentPage = pathname === '/landscaping-websites'
+  
+  const handleFirstCTA = () => {
+    if (isWebsiteDevelopmentPage) {
+      // On website development page, go to examples section
+      const examplesSection = document.getElementById('examples-of-our-work')
+      if (examplesSection) {
+        scrollToSection('examples-of-our-work', 120)
+      } else {
+        scrollToSection('case-study', 120)
+      }
     } else {
+      // On other pages (home, SEO, paid advertising), go directly to case study
       scrollToSection('case-study', 120)
     }
   }
@@ -29,10 +39,10 @@ export default function H1CTAs() {
   return (
     <div className="h1-ctas">
       <button
-        onClick={handleViewExamples}
+        onClick={handleFirstCTA}
         className="cta-button h1-cta-button"
       >
-        View Examples
+        {isWebsiteDevelopmentPage ? 'View Examples' : 'View Case Study'}
       </button>
       <button
         onClick={() => scrollToSection('contact-form', 120)}
