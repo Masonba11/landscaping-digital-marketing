@@ -8,7 +8,6 @@ export default function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const services = [
     { name: "SEO", slug: "landscaping-seo", fullName: "Landscaping SEO" },
@@ -24,6 +23,7 @@ export default function Header() {
     },
   ];
 
+  // Close dropdown when clicking outside (desktop only)
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -31,12 +31,6 @@ export default function Header() {
         !dropdownRef.current.contains(event.target as Node)
       ) {
         setIsServicesOpen(false);
-      }
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(event.target as Node)
-      ) {
-        setIsMobileMenuOpen(false);
       }
     }
 
@@ -46,22 +40,32 @@ export default function Header() {
     };
   }, []);
 
-  // Close mobile menu when clicking a link
-  const handleLinkClick = (e?: React.MouseEvent) => {
-    // Don't prevent default - let the link navigate
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsServicesOpen(false);
+  };
+
+  const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
     setIsServicesOpen(false);
   };
 
   return (
     <header className="header">
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div className="mobile-menu-overlay" onClick={handleLinkClick}></div>
-      )}
-
       <div className="header-container">
-        <Link href="/" className="logo">
+        <Link href="/" className="logo" onClick={closeMobileMenu}>
           <Image
             src="/LDMLOGO.png"
             alt="Landscape Digital Marketing Logo"
@@ -74,24 +78,18 @@ export default function Header() {
 
         {/* Hamburger Menu Button */}
         <button
-          className="hamburger-menu"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className={`mobile-menu-toggle ${isMobileMenuOpen ? "active" : ""}`}
+          onClick={toggleMobileMenu}
           aria-label="Toggle menu"
-          aria-expanded={isMobileMenuOpen}
+          type="button"
         >
-          <span
-            className={`hamburger-line ${isMobileMenuOpen ? "open" : ""}`}
-          ></span>
-          <span
-            className={`hamburger-line ${isMobileMenuOpen ? "open" : ""}`}
-          ></span>
-          <span
-            className={`hamburger-line ${isMobileMenuOpen ? "open" : ""}`}
-          ></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="nav nav-desktop">
+        <nav className="nav-desktop">
           <Link href="/" className="nav-link">
             Home
           </Link>
@@ -99,6 +97,7 @@ export default function Header() {
             <button
               className="nav-link nav-link-dropdown"
               onClick={() => setIsServicesOpen(!isServicesOpen)}
+              type="button"
             >
               Services
               <svg
@@ -147,74 +146,88 @@ export default function Header() {
             Contact
           </Link>
         </nav>
-
-        {/* Mobile Navigation */}
-        <nav
-          className={`nav nav-mobile ${isMobileMenuOpen ? "open" : ""}`}
-          ref={mobileMenuRef}
-        >
-          <Link href="/" className="nav-link-mobile" onClick={handleLinkClick}>
-            Home
-          </Link>
-          <button
-            className="nav-link-mobile nav-link-mobile-dropdown"
-            onClick={() => setIsServicesOpen(!isServicesOpen)}
-          >
-            Services
-            <svg
-              className={`dropdown-arrow ${isServicesOpen ? "open" : ""}`}
-              width="12"
-              height="12"
-              viewBox="0 0 12 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2 4L6 8L10 4"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-          {isServicesOpen && (
-            <div className="dropdown-menu-mobile">
-              {services.map((service) => (
-                <Link
-                  key={service.slug}
-                  href={`/${service.slug}`}
-                  className="dropdown-item-mobile"
-                  onClick={handleLinkClick}
-                >
-                  {service.name}
-                </Link>
-              ))}
-              <Link
-                href="/services"
-                className="dropdown-item-mobile dropdown-item-all"
-                onClick={handleLinkClick}
-              >
-                View All Services →
-              </Link>
-            </div>
-          )}
-          <Link
-            href="/about"
-            className="nav-link-mobile"
-            onClick={handleLinkClick}
-          >
-            About
-          </Link>
-          <Link
-            href="/contact"
-            className="nav-link-mobile nav-link-mobile-cta"
-            onClick={handleLinkClick}
-          >
-            Contact
-          </Link>
-        </nav>
       </div>
+
+      {/* Mobile Full-Screen Menu */}
+      {isMobileMenuOpen && (
+        <div className="mobile-menu-fullscreen">
+          <div className="mobile-menu-content">
+            <Link
+              href="/"
+              className="mobile-menu-item"
+              onClick={closeMobileMenu}
+            >
+              Home
+            </Link>
+
+            <div className="mobile-menu-section">
+              <button
+                className="mobile-menu-item mobile-menu-toggle-btn"
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                type="button"
+              >
+                Services
+                <svg
+                  className={`mobile-menu-arrow ${
+                    isServicesOpen ? "open" : ""
+                  }`}
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 6L8 10L12 6"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+
+              {isServicesOpen && (
+                <div className="mobile-menu-submenu">
+                  {services.map((service) => (
+                    <Link
+                      key={service.slug}
+                      href={`/${service.slug}`}
+                      className="mobile-menu-subitem"
+                      onClick={closeMobileMenu}
+                    >
+                      {service.name}
+                    </Link>
+                  ))}
+                  <Link
+                    href="/services"
+                    className="mobile-menu-subitem mobile-menu-subitem-all"
+                    onClick={closeMobileMenu}
+                  >
+                    View All Services →
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/about"
+              className="mobile-menu-item"
+              onClick={closeMobileMenu}
+            >
+              About
+            </Link>
+
+            <Link
+              href="/contact"
+              className="mobile-menu-item mobile-menu-cta"
+              onClick={closeMobileMenu}
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
