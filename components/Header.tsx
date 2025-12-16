@@ -155,7 +155,13 @@ export default function Header() {
             <Link
               href="/"
               className="mobile-menu-item"
-              onClick={closeMobileMenu}
+              onClick={(e) => {
+                e.preventDefault();
+                closeMobileMenu();
+                setTimeout(() => {
+                  window.location.href = "/";
+                }, 100);
+              }}
             >
               Home
             </Link>
