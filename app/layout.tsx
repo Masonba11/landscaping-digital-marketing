@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://landscapedigitalmarketing.com"
   ),
+  verification: {
+    google: "UWWKeuL7A4m7rwlff6S3ypQcm0NwgqUlBLv1y72Ojgk",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
