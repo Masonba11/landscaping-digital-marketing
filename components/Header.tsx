@@ -54,8 +54,13 @@ export default function Header() {
 
   return (
     <header className="header">
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="mobile-menu-overlay" onClick={handleLinkClick}></div>
+      )}
+
       <div className="header-container">
-        <Link href="/" className="logo" onClick={handleLinkClick}>
+        <Link href="/" className="logo">
           <Image
             src="/LDMLOGO.png"
             alt="Landscape Digital Marketing Logo"
@@ -86,7 +91,7 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="nav nav-desktop">
-          <Link href="/" className="nav-link" onClick={handleLinkClick}>
+          <Link href="/" className="nav-link">
             Home
           </Link>
           <div className="nav-dropdown" ref={dropdownRef}>
@@ -134,30 +139,12 @@ export default function Header() {
               </div>
             )}
           </div>
-          <Link href="/about" className="nav-link" onClick={handleLinkClick}>
+          <Link href="/about" className="nav-link">
             About
           </Link>
-          <button
-            onClick={() => {
-              handleLinkClick();
-              const contactForm = document.getElementById("contact-form");
-              if (contactForm) {
-                const elementPosition =
-                  contactForm.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementPosition - 120;
-                window.scrollTo({
-                  top: offsetPosition,
-                  behavior: "smooth",
-                });
-              } else {
-                // If no form on current page, navigate to home and then scroll
-                window.location.href = "/#contact-form";
-              }
-            }}
-            className="nav-link nav-link-cta"
-          >
+          <Link href="/contact" className="nav-link nav-link-cta">
             Contact
-          </button>
+          </Link>
         </nav>
 
         {/* Mobile Navigation */}
@@ -165,77 +152,66 @@ export default function Header() {
           className={`nav nav-mobile ${isMobileMenuOpen ? "open" : ""}`}
           ref={mobileMenuRef}
         >
-          <Link href="/" className="nav-link" onClick={handleLinkClick}>
+          <Link href="/" className="nav-link-mobile" onClick={handleLinkClick}>
             Home
           </Link>
-          <div className="nav-dropdown" ref={dropdownRef}>
-            <button
-              className="nav-link nav-link-dropdown"
-              onClick={() => setIsServicesOpen(!isServicesOpen)}
+          <button
+            className="nav-link-mobile nav-link-mobile-dropdown"
+            onClick={() => setIsServicesOpen(!isServicesOpen)}
+          >
+            Services
+            <svg
+              className={`dropdown-arrow ${isServicesOpen ? "open" : ""}`}
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              Services
-              <svg
-                className={`dropdown-arrow ${isServicesOpen ? "open" : ""}`}
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M2 4L6 8L10 4"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-            {isServicesOpen && (
-              <div className="dropdown-menu dropdown-menu-mobile">
-                {services.map((service) => (
-                  <Link
-                    key={service.slug}
-                    href={`/${service.slug}`}
-                    className="dropdown-item"
-                    onClick={handleLinkClick}
-                  >
-                    {service.name}
-                  </Link>
-                ))}
+              <path
+                d="M2 4L6 8L10 4"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          {isServicesOpen && (
+            <div className="dropdown-menu-mobile">
+              {services.map((service) => (
                 <Link
-                  href="/services"
-                  className="dropdown-item dropdown-item-all"
+                  key={service.slug}
+                  href={`/${service.slug}`}
+                  className="dropdown-item-mobile"
                   onClick={handleLinkClick}
                 >
-                  View All Services →
+                  {service.name}
                 </Link>
-              </div>
-            )}
-          </div>
-          <Link href="/about" className="nav-link" onClick={handleLinkClick}>
+              ))}
+              <Link
+                href="/services"
+                className="dropdown-item-mobile dropdown-item-all"
+                onClick={handleLinkClick}
+              >
+                View All Services →
+              </Link>
+            </div>
+          )}
+          <Link
+            href="/about"
+            className="nav-link-mobile"
+            onClick={handleLinkClick}
+          >
             About
           </Link>
-          <button
-            onClick={() => {
-              handleLinkClick();
-              const contactForm = document.getElementById("contact-form");
-              if (contactForm) {
-                const elementPosition =
-                  contactForm.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementPosition - 120;
-                window.scrollTo({
-                  top: offsetPosition,
-                  behavior: "smooth",
-                });
-              } else {
-                window.location.href = "/#contact-form";
-              }
-            }}
-            className="nav-link nav-link-cta"
+          <Link
+            href="/contact"
+            className="nav-link-mobile nav-link-mobile-cta"
+            onClick={handleLinkClick}
           >
             Contact
-          </button>
+          </Link>
         </nav>
       </div>
     </header>
