@@ -172,9 +172,10 @@ body {
   display: flex;
 }
 
-/* Mobile Navigation - hidden by default */
+/* Mobile Navigation - completely hidden on desktop */
 .nav-mobile {
-  display: none;
+  display: none !important;
+  visibility: hidden;
   position: fixed;
   top: 0;
   right: -100%;
@@ -189,10 +190,8 @@ body {
   z-index: 999;
   transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
-}
-
-.nav-mobile.open {
-  right: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Hamburger Menu Button - hidden on desktop */
@@ -1487,6 +1486,13 @@ input[type="radio"] {
   /* Mobile Navigation Menu - override desktop styles */
   .nav-mobile {
     display: flex !important;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-mobile.open {
+    right: 0;
   }
 
   .nav-link-mobile {
