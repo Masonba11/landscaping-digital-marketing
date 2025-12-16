@@ -1472,6 +1472,7 @@ input[type="radio"] {
     background: rgba(0, 0, 0, 0.5);
     z-index: 998;
     animation: fadeIn 0.3s ease;
+    cursor: pointer;
   }
 
   @keyframes fadeIn {
@@ -1495,6 +1496,19 @@ input[type="radio"] {
     right: 0;
   }
 
+  /* Ensure all mobile nav links and buttons are clickable */
+  .nav-mobile.open * {
+    pointer-events: auto !important;
+  }
+
+  .nav-mobile a,
+  .nav-mobile button {
+    z-index: 1000;
+    position: relative;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0, 102, 255, 0.1);
+  }
+
   .nav-link-mobile {
     display: flex;
     align-items: center;
@@ -1513,6 +1527,10 @@ input[type="radio"] {
     cursor: pointer;
     font-family: inherit;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1000;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: rgba(0, 102, 255, 0.1);
   }
 
   .nav-link-mobile:hover {
@@ -1569,6 +1587,10 @@ input[type="radio"] {
     text-align: left;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1000;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: rgba(0, 102, 255, 0.1);
   }
 
   .dropdown-item-mobile:hover {

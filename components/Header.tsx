@@ -47,7 +47,8 @@ export default function Header() {
   }, []);
 
   // Close mobile menu when clicking a link
-  const handleLinkClick = () => {
+  const handleLinkClick = (e?: React.MouseEvent) => {
+    // Don't prevent default - let the link navigate
     setIsMobileMenuOpen(false);
     setIsServicesOpen(false);
   };
