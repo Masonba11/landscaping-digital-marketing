@@ -1,39 +1,39 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { generateLocalBusinessSchema } from '@/lib/schema'
-import './globals.css'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { generateCombinedSchema } from "@/lib/schema";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Landscape Digital Marketing',
-    template: '%s',
+    default: "Landscape Digital Marketing",
+    template: "%s",
   },
   description:
-    'Professional digital marketing services for landscaping companies. Get found by homeowners, generate qualified leads, and book more jobs.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://landscapedigitalmarketing.com'),
+    "Professional digital marketing services for landscaping companies. Get found by homeowners, generate qualified leads, and book more jobs.",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://landscapedigitalmarketing.com"
+  ),
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/LDMLOGO.png', type: 'image/png', sizes: 'any' },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/LDMLOGO.png", type: "image/png", sizes: "any" },
     ],
-    apple: [
-      { url: '/LDMLOGO.png', sizes: '180x180', type: 'image/png' },
-    ],
-    shortcut: '/favicon.ico',
+    apple: [{ url: "/LDMLOGO.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon.ico",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  // Generate LocalBusiness schema for all pages
-  const localBusinessSchema = generateLocalBusinessSchema()
+  // Generate combined schema (LocalBusiness + all Services) for all pages
+  const combinedSchema = generateCombinedSchema();
 
   return (
     <html lang="en">
@@ -43,7 +43,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/LDMLOGO.png" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }}
         />
       </head>
       <body className={inter.className}>
@@ -52,6 +52,5 @@ export default function RootLayout({
         <Footer />
       </body>
     </html>
-  )
+  );
 }
-
