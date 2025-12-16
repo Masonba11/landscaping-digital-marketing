@@ -79,16 +79,16 @@ export default async function ServicesPage() {
 
               <ul className="benefits-list">
                 <li>
-                  <strong>Industry expertise:</strong> We've tested what works for landscapers and
-                  what doesn't
+                  <strong>Industry expertise:</strong> We&apos;ve tested what works for landscapers and
+                  what doesn&apos;t
                 </li>
                 <li>
                   <strong>Proven results:</strong> Our clients see increased leads, more phone calls,
                   and booked jobs
                 </li>
                 <li>
-                  <strong>Full transparency:</strong> You'll know exactly what we're doing and how
-                  it's performing
+                  <strong>Full transparency:</strong> You&apos;ll know exactly what we&apos;re doing and how
+                  it&apos;s performing
                 </li>
                 <li>
                   <strong>Landscaping-focused:</strong> Every strategy is tailored to your industry,

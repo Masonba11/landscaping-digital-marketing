@@ -135,7 +135,7 @@ export default function ContactForm() {
             className="form-checkbox-input"
           />
           <span className="form-checkbox-label">
-            I understand that our minimum monthly investment is $2,000 (this includes compensation for all the services we'd perform and the total ad spend your business would need). <span className="required">*</span>
+            I understand that our minimum monthly investment is $2,000 (this includes compensation for all the services we&apos;d perform and the total ad spend your business would need). <span className="required">*</span>
           </span>
         </label>
       </div>

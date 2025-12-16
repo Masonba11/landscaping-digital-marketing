@@ -41,6 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       id: params.slug,
       title: fallbackContent.title,
       slug: params.slug,
+      uri: params.slug,
       content: fallbackContent.content,
       seo: {
         title: fallbackContent.title,
@@ -79,6 +80,7 @@ export default async function DynamicPage({ params }: PageProps) {
       id: params.slug,
       title: fallbackContent.title,
       slug: params.slug,
+      uri: params.slug,
       content: fallbackContent.content,
       seo: {
         title: fallbackContent.title,

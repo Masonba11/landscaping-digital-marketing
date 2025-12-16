@@ -96,7 +96,7 @@ export default async function HomePage() {
             <h2>Why Landscapers Need Digital Marketing</h2>
             <p>
               Most landscaping companies rely on word-of-mouth and referrals.
-              While those are valuable, they limit your growth. Here's what
+              While those are valuable, they limit your growth. Here&apos;s what
               happens when you add landscaping digital marketing:
             </p>
 
@@ -107,8 +107,8 @@ export default async function HomePage() {
               </li>
               <li>
                 <strong>Reach customers actively searching:</strong> Show up
-                when homeowners type "landscaper near me" or "lawn care
-                services"
+                when homeowners type &quot;landscaper near me&quot; or &quot;lawn care
+                services&quot;
               </li>
               <li>
                 <strong>Compete with larger companies:</strong> Level the
@@ -149,7 +149,7 @@ export default async function HomePage() {
                 sound good)
               </li>
               <li>
-                We create content that speaks to homeowners' real concerns about
+                We create content that speaks to homeowners&apos; real concerns about
                 their yards
               </li>
               <li>
@@ -157,8 +157,8 @@ export default async function HomePage() {
                 booked jobs—not just website visits
               </li>
               <li>
-                We've tested what works for landscapers and what doesn't, so you
-                don't waste money on experiments
+                We&apos;ve tested what works for landscapers and what doesn&apos;t, so you
+                don&apos;t waste money on experiments
               </li>
             </ul>
           </div>

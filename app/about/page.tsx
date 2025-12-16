@@ -45,14 +45,14 @@ export default async function AboutPage() {
                 agency built exclusively for landscaping companies. We
                 understand that your business has unique needs, seasonal cycles,
                 and local competition that generic marketing agencies simply
-                don't grasp.
+                don&apos;t grasp.
               </p>
 
               <h2>Built for Landscaping Businesses</h2>
               <p>
                 We created this agency because we saw too many landscaping
                 companies struggling with marketing agencies that treated them
-                like any other business. Landscaping isn't like other
+                like any other business. Landscaping isn&apos;t like other
                 industries—you have seasonal peaks and valleys, local
                 competition that changes by the block, and customers who need
                 immediate solutions.
@@ -82,7 +82,7 @@ export default async function AboutPage() {
                   and booked jobs
                 </li>
                 <li>
-                  What works for landscapers and what doesn't (so you don't
+                  What works for landscapers and what doesn&apos;t (so you don&apos;t
                   waste money on experiments)
                 </li>
               </ul>
@@ -92,12 +92,12 @@ export default async function AboutPage() {
                 Unlike generic agencies that work with dozens of industries, we
                 focus exclusively on landscaping. This specialization means
                 every strategy, every campaign, and every piece of content is
-                tailored to your industry. We've tested what works for
+                tailored to your industry. We&apos;ve tested what works for
                 landscapers, and we bring that expertise to every client.
               </p>
 
               <p>
-                We're not here to give you generic business advice. We're here
+                We&apos;re not here to give you generic business advice. We&apos;re here
                 to help you get found by homeowners, generate qualified leads,
                 and book more jobs.
               </p>

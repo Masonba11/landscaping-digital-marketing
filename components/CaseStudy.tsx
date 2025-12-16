@@ -37,7 +37,7 @@ export default function CaseStudy() {
                 due to overly broad targeting. We rebuilt their Google Ads campaign from scratch, focusing 
                 on exact and phrase match keywords tied directly to their revenue-driving services like 
                 tree trimming, yard cleanup, and lawn maintenance. We also developed a robust negative 
-                keyword list to filter out non-commercial queries such as "jobs," "DIY," or "consulting." 
+                keyword list to filter out non-commercial queries such as &quot;jobs,&quot; &quot;DIY,&quot; or &quot;consulting.&quot; 
                 This shift immediately improved ad efficiency, driving higher-quality traffic without 
                 increasing budget.
               </p>
@@ -52,7 +52,7 @@ export default function CaseStudy() {
                 Queen Creek, Gilbert, Chandler, Mesa, and San Tan Valley, to identify what people were 
                 actually searching for in each city. From there, we created service-city pages that 
                 strategically combined their services with those location-specific keywords (for example, 
-                "Tree Trimming Gilbert AZ" or "Landscape Maintenance Chandler AZ"). These new pages were 
+                &quot;Tree Trimming Gilbert AZ&quot; or &quot;Landscape Maintenance Chandler AZ&quot;). These new pages were 
                 internally linked to the existing service-area structure, ensuring Google could crawl and 
                 index them as a unified network of local authority pages.
               </p>
