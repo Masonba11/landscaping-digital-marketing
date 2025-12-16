@@ -1,42 +1,56 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { useState, useEffect, useRef } from 'react'
+import Link from "next/link";
+import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
 
 export default function Header() {
-  const [isServicesOpen, setIsServicesOpen] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
-  const mobileMenuRef = useRef<HTMLDivElement>(null)
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const services = [
-    { name: 'SEO', slug: 'landscaping-seo', fullName: 'Landscaping SEO' },
-    { name: 'Paid Advertising', slug: 'landscaping-ads', fullName: 'Landscaping Ads' },
-    { name: 'Website Development', slug: 'landscaping-websites', fullName: 'Landscaping Websites' },
-  ]
+    { name: "SEO", slug: "landscaping-seo", fullName: "Landscaping SEO" },
+    {
+      name: "Paid Advertising",
+      slug: "landscaping-ads",
+      fullName: "Landscaping Ads",
+    },
+    {
+      name: "Website Development",
+      slug: "landscaping-websites",
+      fullName: "Landscaping Websites",
+    },
+  ];
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsServicesOpen(false)
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsServicesOpen(false);
       }
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
-        setIsMobileMenuOpen(false)
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node)
+      ) {
+        setIsMobileMenuOpen(false);
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   // Close mobile menu when clicking a link
   const handleLinkClick = () => {
-    setIsMobileMenuOpen(false)
-    setIsServicesOpen(false)
-  }
+    setIsMobileMenuOpen(false);
+    setIsServicesOpen(false);
+  };
 
   return (
     <header className="header">
@@ -51,7 +65,7 @@ export default function Header() {
             priority
           />
         </Link>
-        
+
         {/* Hamburger Menu Button */}
         <button
           className="hamburger-menu"
@@ -59,9 +73,15 @@ export default function Header() {
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
         >
-          <span className={`hamburger-line ${isMobileMenuOpen ? 'open' : ''}`}></span>
-          <span className={`hamburger-line ${isMobileMenuOpen ? 'open' : ''}`}></span>
-          <span className={`hamburger-line ${isMobileMenuOpen ? 'open' : ''}`}></span>
+          <span
+            className={`hamburger-line ${isMobileMenuOpen ? "open" : ""}`}
+          ></span>
+          <span
+            className={`hamburger-line ${isMobileMenuOpen ? "open" : ""}`}
+          ></span>
+          <span
+            className={`hamburger-line ${isMobileMenuOpen ? "open" : ""}`}
+          ></span>
         </button>
 
         {/* Desktop Navigation */}
@@ -69,17 +89,14 @@ export default function Header() {
           <Link href="/" className="nav-link" onClick={handleLinkClick}>
             Home
           </Link>
-          <div
-            className="nav-dropdown"
-            ref={dropdownRef}
-          >
+          <div className="nav-dropdown" ref={dropdownRef}>
             <button
               className="nav-link nav-link-dropdown"
               onClick={() => setIsServicesOpen(!isServicesOpen)}
             >
               Services
               <svg
-                className={`dropdown-arrow ${isServicesOpen ? 'open' : ''}`}
+                className={`dropdown-arrow ${isServicesOpen ? "open" : ""}`}
                 width="12"
                 height="12"
                 viewBox="0 0 12 12"
@@ -122,18 +139,19 @@ export default function Header() {
           </Link>
           <button
             onClick={() => {
-              handleLinkClick()
-              const contactForm = document.getElementById('contact-form')
+              handleLinkClick();
+              const contactForm = document.getElementById("contact-form");
               if (contactForm) {
-                const elementPosition = contactForm.getBoundingClientRect().top + window.pageYOffset
-                const offsetPosition = elementPosition - 120
+                const elementPosition =
+                  contactForm.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - 120;
                 window.scrollTo({
                   top: offsetPosition,
-                  behavior: 'smooth'
-                })
+                  behavior: "smooth",
+                });
               } else {
                 // If no form on current page, navigate to home and then scroll
-                window.location.href = '/#contact-form'
+                window.location.href = "/#contact-form";
               }
             }}
             className="nav-link nav-link-cta"
@@ -143,21 +161,21 @@ export default function Header() {
         </nav>
 
         {/* Mobile Navigation */}
-        <nav className={`nav nav-mobile ${isMobileMenuOpen ? 'open' : ''}`} ref={mobileMenuRef}>
+        <nav
+          className={`nav nav-mobile ${isMobileMenuOpen ? "open" : ""}`}
+          ref={mobileMenuRef}
+        >
           <Link href="/" className="nav-link" onClick={handleLinkClick}>
             Home
           </Link>
-          <div
-            className="nav-dropdown"
-            ref={dropdownRef}
-          >
+          <div className="nav-dropdown" ref={dropdownRef}>
             <button
               className="nav-link nav-link-dropdown"
               onClick={() => setIsServicesOpen(!isServicesOpen)}
             >
               Services
               <svg
-                className={`dropdown-arrow ${isServicesOpen ? 'open' : ''}`}
+                className={`dropdown-arrow ${isServicesOpen ? "open" : ""}`}
                 width="12"
                 height="12"
                 viewBox="0 0 12 12"
@@ -200,17 +218,18 @@ export default function Header() {
           </Link>
           <button
             onClick={() => {
-              handleLinkClick()
-              const contactForm = document.getElementById('contact-form')
+              handleLinkClick();
+              const contactForm = document.getElementById("contact-form");
               if (contactForm) {
-                const elementPosition = contactForm.getBoundingClientRect().top + window.pageYOffset
-                const offsetPosition = elementPosition - 120
+                const elementPosition =
+                  contactForm.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - 120;
                 window.scrollTo({
                   top: offsetPosition,
-                  behavior: 'smooth'
-                })
+                  behavior: "smooth",
+                });
               } else {
-                window.location.href = '/#contact-form'
+                window.location.href = "/#contact-form";
               }
             }}
             className="nav-link nav-link-cta"
@@ -220,5 +239,5 @@ export default function Header() {
         </nav>
       </div>
     </header>
-  )
+  );
 }
