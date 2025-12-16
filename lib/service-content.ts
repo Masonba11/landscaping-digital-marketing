@@ -3,22 +3,22 @@
  */
 
 export interface ServiceContent {
-  title: string
-  h1: string
-  heroHeading: string
-  heroSubheading: string
-  content: string
-  faqs?: Array<{ question: string; answer: string }>
+  title: string;
+  h1: string;
+  heroHeading: string;
+  heroSubheading: string;
+  content: string;
+  faqs?: Array<{ question: string; answer: string }>;
 }
 
 export function getServiceFallbackContent(slug: string): ServiceContent | null {
   const contentMap: Record<string, ServiceContent> = {
-    'landscaping-seo': {
-      title: 'Landscaping SEO | LDM',
-      h1: 'Landscaping SEO: Get Found When Homeowners Search',
-      heroHeading: 'Landscaping SEO',
+    "landscaping-seo": {
+      title: "Landscaping SEO | LDM",
+      h1: "Landscaping SEO: Get Found When Homeowners Search",
+      heroHeading: "Landscaping SEO",
       heroSubheading:
-        'Get found on Google when homeowners search for landscaping services. Long-term visibility that generates free traffic month after month.',
+        "Get found on Google when homeowners search for landscaping services. Long-term visibility that generates free traffic month after month.",
       content: `
         <h2>What is Landscaping SEO?</h2>
         <p>Landscaping SEO (Search Engine Optimization) is the process of optimizing your website to rank higher in Google search results when homeowners search for landscaping services in your area. Unlike paid advertising, SEO provides long-term, organic visibility that generates free leads month after month.</p>
@@ -68,28 +68,29 @@ export function getServiceFallbackContent(slug: string): ServiceContent | null {
       `,
       faqs: [
         {
-          question: 'How long does it take to see results from landscaping SEO?',
+          question:
+            "How long does it take to see results from landscaping SEO?",
           answer:
-            'SEO is a long-term strategy. Most landscaping companies start seeing results in 3-6 months, with significant improvements in 6-12 months. Results compound over time as your rankings improve.',
+            "SEO is a long-term strategy. Most landscaping companies start seeing results in 3-6 months, with significant improvements in 6-12 months. Results compound over time as your rankings improve.",
         },
         {
-          question: 'Will SEO work for my local landscaping business?',
+          question: "Will SEO work for my local landscaping business?",
           answer:
             'Yes! Local SEO is especially effective for landscaping companies because homeowners search for services in their specific area. We optimize your website to rank for local searches like "landscaper near me" and "[your city] landscaping services."',
         },
         {
-          question: 'How much does landscaping SEO cost?',
+          question: "How much does landscaping SEO cost?",
           answer:
-            'SEO pricing varies based on your goals, competition level, and service area. We create custom SEO plans that fit your budget and timeline. Contact us for a free consultation and custom quote.',
+            "SEO pricing varies based on your goals, competition level, and service area. We create custom SEO plans that fit your budget and timeline. Contact us for a free consultation and custom quote.",
         },
       ],
     },
-    'landscaping-ads': {
-      title: 'Landscaping Ads | LDM',
-      h1: 'Landscaping Ads: Drive Immediate Leads with Paid Advertising',
-      heroHeading: 'Landscaping Ads',
+    "landscaping-ads": {
+      title: "Landscaping Ads | LDM",
+      h1: "Landscaping Ads: Drive Immediate Leads with Paid Advertising",
+      heroHeading: "Landscaping Ads",
       heroSubheading:
-        'Drive immediate leads with targeted Google Ads campaigns. Start getting phone calls within days of launch.',
+        "Drive immediate leads with targeted Google Ads campaigns. Start getting phone calls within days of launch.",
       content: `
         <h2>What are Landscaping Ads?</h2>
         <p>Landscaping ads are paid advertising campaigns on Google that target homeowners actively searching for landscaping services. Unlike SEO, paid ads deliver immediate results—you can start getting leads within days of launching your campaign.</p>
@@ -146,28 +147,28 @@ export function getServiceFallbackContent(slug: string): ServiceContent | null {
       `,
       faqs: [
         {
-          question: 'How quickly will I see results from landscaping ads?',
+          question: "How quickly will I see results from landscaping ads?",
           answer:
-            'Paid advertising delivers immediate results. Most landscaping companies start getting phone calls and quote requests within 1-3 days of launching their campaigns. Results improve as we optimize based on performance data.',
+            "Paid advertising delivers immediate results. Most landscaping companies start getting phone calls and quote requests within 1-3 days of launching their campaigns. Results improve as we optimize based on performance data.",
         },
         {
-          question: 'How much should I spend on landscaping ads?',
+          question: "How much should I spend on landscaping ads?",
           answer:
-            'Ad spend depends on your goals, competition, and service area. We typically recommend starting with $1,000-$3,000 per month for local landscaping companies, but we will create a custom budget based on your needs and goals.',
+            "Ad spend depends on your goals, competition, and service area. We typically recommend starting with $1,000-$3,000 per month for local landscaping companies, but we will create a custom budget based on your needs and goals.",
         },
         {
-          question: 'Will I get quality leads from paid ads?',
+          question: "Will I get quality leads from paid ads?",
           answer:
-            'Yes! We optimize our landscaping ad campaigns to target high-intent customers who are actively searching for landscaping services. We track phone calls, quote requests, and booked jobs to ensure you are getting quality leads that convert.',
+            "Yes! We optimize our landscaping ad campaigns to target high-intent customers who are actively searching for landscaping services. We track phone calls, quote requests, and booked jobs to ensure you are getting quality leads that convert.",
         },
       ],
     },
-    'landscaping-websites': {
-      title: 'Landscaping Websites | LDM',
-      h1: 'Landscaping Websites: Professional Websites That Convert Visitors into Customers',
-      heroHeading: 'Landscaping Websites',
+    "landscaping-websites": {
+      title: "Landscaping Websites | LDM",
+      h1: "Landscaping Websites: Professional Websites That Convert Visitors into Customers",
+      heroHeading: "Landscaping Websites",
       heroSubheading:
-        'Professional websites that showcase your work, load fast, and convert visitors into customers. Mobile-responsive and SEO-optimized.',
+        "Professional websites that showcase your work, load fast, and convert visitors into customers. Mobile-responsive and SEO-optimized.",
       content: `
         <div style="margin-bottom: 2rem;">
           <h2>What is Landscaping Website Development?</h2>
@@ -281,24 +282,23 @@ export function getServiceFallbackContent(slug: string): ServiceContent | null {
       `,
       faqs: [
         {
-          question: 'How long does it take to build a landscaping website?',
+          question: "How long does it take to build a landscaping website?",
           answer:
-            'Most landscaping websites take 4-6 weeks to build, from initial design to launch. This includes design, development, content creation, and testing. We will work with you to ensure the timeline fits your needs.',
+            "Most landscaping websites take 4-6 weeks to build, from initial design to launch. This includes design, development, content creation, and testing. We will work with you to ensure the timeline fits your needs.",
         },
         {
-          question: 'Can I update my website content myself?',
+          question: "Can I update my website content myself?",
           answer:
-            'Yes! We build your landscaping website with an easy-to-use content management system. You can update photos, add new projects to your gallery, and edit content without needing technical knowledge.',
+            "Yes! We build your landscaping website with an easy-to-use content management system. You can update photos, add new projects to your gallery, and edit content without needing technical knowledge.",
         },
         {
-          question: 'Will my website work on mobile devices?',
+          question: "Will my website work on mobile devices?",
           answer:
-            'Absolutely! All our landscaping websites are fully responsive, meaning they look and work perfectly on phones, tablets, and desktops. Since most homeowners search for landscapers on mobile, this is essential.',
+            "Absolutely! All our landscaping websites are fully responsive, meaning they look and work perfectly on phones, tablets, and desktops. Since most homeowners search for landscapers on mobile, this is essential.",
         },
       ],
     },
-  }
+  };
 
-  return contentMap[slug] || null
+  return contentMap[slug] || null;
 }
-

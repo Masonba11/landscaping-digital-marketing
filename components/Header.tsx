@@ -3,8 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
+  const router = useRouter();
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -60,6 +62,18 @@ export default function Header() {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
     setIsServicesOpen(false);
+  };
+
+  const handleMobileNav = (path: string, e?: React.MouseEvent) => {
+    if (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+    closeMobileMenu();
+    // Use setTimeout to ensure menu closes before navigation
+    setTimeout(() => {
+      router.push(path);
+    }, 150);
   };
 
   return (
@@ -152,109 +166,40 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div className="mobile-menu-fullscreen">
           <div className="mobile-menu-content">
-            <Link
-              href="/"
+            <button
               className="mobile-menu-item"
-              onClick={(e) => {
-                e.preventDefault();
-                closeMobileMenu();
-                setTimeout(() => {
-                  window.location.href = "/";
-                }, 100);
-              }}
+              onClick={(e) => handleMobileNav("/", e)}
+              type="button"
             >
               Home
-            </Link>
+            </button>
 
-            <div className="mobile-menu-section">
+            {services.map((service) => (
               <button
-                className="mobile-menu-item mobile-menu-toggle-btn"
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                key={service.slug}
+                className="mobile-menu-item"
+                onClick={(e) => handleMobileNav(`/${service.slug}`, e)}
                 type="button"
               >
-                Services
-                <svg
-                  className={`mobile-menu-arrow ${
-                    isServicesOpen ? "open" : ""
-                  }`}
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4 6L8 10L12 6"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                {service.name}
               </button>
+            ))}
 
-              {isServicesOpen && (
-                <div className="mobile-menu-submenu">
-                  {services.map((service) => (
-                    <Link
-                      key={service.slug}
-                      href={`/${service.slug}`}
-                      className="mobile-menu-subitem"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        closeMobileMenu();
-                        setTimeout(() => {
-                          window.location.href = `/${service.slug}`;
-                        }, 100);
-                      }}
-                    >
-                      {service.name}
-                    </Link>
-                  ))}
-                  <Link
-                    href="/services"
-                    className="mobile-menu-subitem mobile-menu-subitem-all"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      closeMobileMenu();
-                      setTimeout(() => {
-                        window.location.href = "/services";
-                      }, 100);
-                    }}
-                  >
-                    View All Services →
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            <Link
-              href="/about"
+            <button
               className="mobile-menu-item"
-              onClick={(e) => {
-                e.preventDefault();
-                closeMobileMenu();
-                setTimeout(() => {
-                  window.location.href = "/about";
-                }, 100);
-              }}
+              onClick={(e) => handleMobileNav("/about", e)}
+              type="button"
             >
               About
-            </Link>
+            </button>
 
-            <Link
-              href="/contact"
+            <button
               className="mobile-menu-item mobile-menu-cta"
-              onClick={(e) => {
-                e.preventDefault();
-                closeMobileMenu();
-                setTimeout(() => {
-                  window.location.href = "/contact";
-                }, 100);
-              }}
+              onClick={(e) => handleMobileNav("/contact", e)}
+              type="button"
             >
               Contact
-            </Link>
+            </button>
           </div>
         </div>
       )}
