@@ -89,12 +89,14 @@ export default function ThankYouPage() {
             borderRadius: "12px",
           }}
         >
-          <p style={{ margin: 0, fontSize: "0.9rem", color: "var(--dark-gray)" }}>
+          <p
+            style={{ margin: 0, fontSize: "0.9rem", color: "var(--dark-gray)" }}
+          >
             <strong>What happens next?</strong>
             <br />
-            Our team will review your submission and reach out via email or phone
-            to schedule a consultation. We&apos;re excited to help grow your
-            landscaping business!
+            Our team will review your submission and reach out via email or
+            phone to schedule a consultation. We&apos;re excited to help grow
+            your landscaping business!
           </p>
         </div>
       </div>

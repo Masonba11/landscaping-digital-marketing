@@ -44,7 +44,7 @@ Get your Next.js frontend connected to WordPress in 5 minutes.
    ```env
    NEXT_PUBLIC_WORDPRESS_URL=https://your-wordpress-site.com
    NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL=https://your-wordpress-site.com/graphql
-   NEXT_PUBLIC_SITE_URL=https://landscapedigitalmarketing.com
+   NEXT_PUBLIC_SITE_URL=https://landscapingdigitalmarketing.com
    NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your-key-here
    ```
 
