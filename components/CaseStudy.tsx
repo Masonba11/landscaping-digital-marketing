@@ -1,6 +1,19 @@
-import Link from "next/link";
+"use client";
 
 export default function CaseStudy() {
+  const scrollToContactForm = () => {
+    const element = document.getElementById("contact-form");
+    if (element) {
+      const elementPosition =
+        element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - 120;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <section id="case-study" className="case-study">
       <div className="container">
@@ -183,9 +196,13 @@ export default function CaseStudy() {
               strategies. Let us show you how we can transform your online
               presence.
             </p>
-            <Link href="/contact" className="cta-button">
+            <button
+              onClick={scrollToContactForm}
+              className="cta-button"
+              type="button"
+            >
               Get Your Free Consultation
-            </Link>
+            </button>
           </div>
         </div>
       </div>

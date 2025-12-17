@@ -76,6 +76,27 @@ export default function Header() {
     }, 150);
   };
 
+  const scrollToContactForm = (e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
+    closeMobileMenu();
+    // Use setTimeout to ensure menu closes before scrolling
+    setTimeout(() => {
+      const element = document.getElementById("contact-form");
+      if (element) {
+        const elementPosition =
+          element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - 120;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 150);
+  };
+
   return (
     <header className="header">
       <div className="header-container">
@@ -156,9 +177,13 @@ export default function Header() {
           <Link href="/about" className="nav-link">
             About
           </Link>
-          <Link href="/contact" className="nav-link nav-link-cta">
+          <button
+            onClick={scrollToContactForm}
+            className="nav-link nav-link-cta"
+            type="button"
+          >
             Contact
-          </Link>
+          </button>
         </nav>
       </div>
 
@@ -195,7 +220,7 @@ export default function Header() {
 
             <button
               className="mobile-menu-item mobile-menu-cta"
-              onClick={(e) => handleMobileNav("/contact", e)}
+              onClick={scrollToContactForm}
               type="button"
             >
               Contact
