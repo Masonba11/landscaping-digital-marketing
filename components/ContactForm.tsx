@@ -56,18 +56,34 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="name" className="form-label">
-          Name <span className="required">*</span>
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          className="form-input"
-          required
-          placeholder="Your name"
-        />
+      <div className="form-row">
+        <div className="form-group">
+          <label htmlFor="firstName" className="form-label">
+            First Name <span className="required">*</span>
+          </label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            className="form-input"
+            required
+            placeholder="John"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="lastName" className="form-label">
+            Last Name <span className="required">*</span>
+          </label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            className="form-input"
+            required
+            placeholder="Doe"
+          />
+        </div>
       </div>
 
       <div className="form-group">
@@ -86,14 +102,29 @@ export default function ContactForm() {
 
       <div className="form-group">
         <label htmlFor="phone" className="form-label">
-          Phone
+          Phone Number <span className="required">*</span>
         </label>
         <input
           type="tel"
           id="phone"
           name="phone"
           className="form-input"
+          required
           placeholder="(555) 123-4567"
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="city" className="form-label">
+          City / Service Area <span className="required">*</span>
+        </label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          className="form-input"
+          required
+          placeholder="Your city or service area"
         />
       </div>
 
@@ -124,35 +155,40 @@ export default function ContactForm() {
       </div>
 
       <div className="form-group">
+        <label htmlFor="budget" className="form-label">
+          Estimated Monthly Marketing Budget <span className="required">*</span>
+        </label>
+        <select id="budget" name="budget" className="form-input" required>
+          <option value="">Select budget range</option>
+          <option value="under-1000">Under $1,000</option>
+          <option value="1000-2000">$1,000–$2,000</option>
+          <option value="2000-3500">$2,000–$3,500</option>
+          <option value="3500-plus">$3,500+</option>
+        </select>
+        <p
+          style={{
+            marginTop: "0.5rem",
+            fontSize: "0.9rem",
+            color: "var(--dark-gray)",
+            lineHeight: "1.6",
+          }}
+        >
+          Most landscaping clients invest between $1,500–$3,000/month depending
+          on market competition.
+        </p>
+      </div>
+
+      <div className="form-group">
         <label htmlFor="message" className="form-label">
-          Message <span className="required">*</span>
+          Message
         </label>
         <textarea
           id="message"
           name="message"
           className="form-textarea"
           rows={6}
-          required
           placeholder="Tell us about your landscaping business and marketing goals..."
         />
-      </div>
-
-      <div className="form-group">
-        <label className="form-checkbox">
-          <input
-            type="checkbox"
-            name="budgetConfirmation"
-            value="yes"
-            required
-            className="form-checkbox-input"
-          />
-          <span className="form-checkbox-label">
-            I understand that our minimum monthly investment is $2,000 (this
-            includes compensation for all the services we&apos;d perform and the
-            total ad spend your business would need).{" "}
-            <span className="required">*</span>
-          </span>
-        </label>
       </div>
 
       <input
@@ -170,6 +206,17 @@ export default function ContactForm() {
           {message}
         </div>
       )}
+
+      <p
+        style={{
+          marginBottom: "1rem",
+          fontSize: "0.9rem",
+          color: "var(--dark-gray)",
+          textAlign: "center",
+        }}
+      >
+        You're not committing to anything — this just starts the conversation.
+      </p>
 
       <button
         type="submit"

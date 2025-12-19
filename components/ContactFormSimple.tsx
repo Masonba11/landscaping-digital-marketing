@@ -115,6 +115,20 @@ export default function ContactFormSimple() {
       </div>
 
       <div className="form-group">
+        <label htmlFor="city" className="form-label">
+          City / Service Area <span className="required">*</span>
+        </label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          className="form-input"
+          required
+          placeholder="Your city or service area"
+        />
+      </div>
+
+      <div className="form-group">
         <label htmlFor="company" className="form-label">
           Company Name
         </label>
@@ -129,16 +143,39 @@ export default function ContactFormSimple() {
 
       <div className="form-group">
         <label htmlFor="website" className="form-label">
-          Company Website URL <span className="required">*</span>
+          Company Website URL
         </label>
         <input
           type="url"
           id="website"
           name="website"
           className="form-input"
-          required
           placeholder="https://yourcompany.com"
         />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="budget" className="form-label">
+          Estimated Monthly Marketing Budget <span className="required">*</span>
+        </label>
+        <select id="budget" name="budget" className="form-input" required>
+          <option value="">Select budget range</option>
+          <option value="under-1000">Under $1,000</option>
+          <option value="1000-2000">$1,000–$2,000</option>
+          <option value="2000-3500">$2,000–$3,500</option>
+          <option value="3500-plus">$3,500+</option>
+        </select>
+        <p
+          style={{
+            marginTop: "0.5rem",
+            fontSize: "0.9rem",
+            color: "var(--dark-gray)",
+            lineHeight: "1.6",
+          }}
+        >
+          Most landscaping clients invest between $1,500–$3,000/month depending
+          on market competition.
+        </p>
       </div>
 
       <div className="form-group">
@@ -152,24 +189,6 @@ export default function ContactFormSimple() {
           rows={4}
           placeholder="Tell us about your landscaping business and marketing goals..."
         />
-      </div>
-
-      <div className="form-group">
-        <label className="form-checkbox">
-          <input
-            type="checkbox"
-            name="budgetConfirmation"
-            value="yes"
-            required
-            className="form-checkbox-input"
-          />
-          <span className="form-checkbox-label">
-            I understand that our minimum monthly investment is $2,000 (this
-            includes compensation for all the services we&apos;d perform and the
-            total ad spend your business would need).{" "}
-            <span className="required">*</span>
-          </span>
-        </label>
       </div>
 
       <input
@@ -187,6 +206,17 @@ export default function ContactFormSimple() {
           {message}
         </div>
       )}
+
+      <p
+        style={{
+          marginBottom: "1rem",
+          fontSize: "0.9rem",
+          color: "var(--dark-gray)",
+          textAlign: "center",
+        }}
+      >
+        You're not committing to anything — this just starts the conversation.
+      </p>
 
       <button
         type="submit"

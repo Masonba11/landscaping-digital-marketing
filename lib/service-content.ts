@@ -170,6 +170,8 @@ export function getServiceFallbackContent(slug: string): ServiceContent | null {
       heroSubheading:
         "Professional websites that showcase your work, load fast, and convert visitors into customers. Mobile-responsive and SEO-optimized.",
       content: `
+        <p style="font-size: 1.1rem; color: var(--primary-blue); font-weight: 600; margin-bottom: 2rem; text-align: center;">Most landscaping websites don't generate calls — we fix that.</p>
+
         <div style="margin-bottom: 2rem;">
           <h2>What is Landscaping Website Development?</h2>
           <p>Landscaping website development is the process of creating a professional, high-converting website specifically designed for landscaping companies. Your website is often the first impression potential customers have of your business, so it needs to showcase your work, build trust, and make it easy for homeowners to request quotes.</p>
@@ -279,22 +281,180 @@ export function getServiceFallbackContent(slug: string): ServiceContent | null {
             </a>
           </div>
         </div>
+
+        <div style="margin: 3rem 0; padding: 2rem; background: rgba(0, 102, 255, 0.05); border-radius: 16px;">
+          <h2 style="margin-top: 0;">This Is a Good Fit If…</h2>
+          <ul class="benefits-list" style="margin: 0;">
+            <li>You want more calls or quote requests from your website</li>
+            <li>You offer landscaping, lawn care, tree trimming, or yard services</li>
+            <li>You're tired of relying only on referrals</li>
+            <li>You want something simple that actually works</li>
+          </ul>
+        </div>
+
+        <div style="margin: 3rem 0;">
+          <h2>What Happens After You Submit?</h2>
+          <ol style="margin: 0; padding-left: 1.5rem; line-height: 2;">
+            <li>We review your business and online presence</li>
+            <li>We call you to understand your goals (10–15 minutes)</li>
+            <li>We give you clear pricing and next steps — no pressure</li>
+          </ol>
+        </div>
+
+        <div style="margin: 3rem 0; padding: 2rem; background: rgba(0, 102, 255, 0.05); border-radius: 16px;">
+          <h2 style="margin-top: 0;">Not Another Marketing Agency</h2>
+          <p style="margin: 0; line-height: 1.8;">We know most landscapers have tried marketing before — SEO that never ranked, ads that didn't convert, or agencies that overpromised. Our approach is simple: build systems that generate calls, track what works, and scale only when results are proven.</p>
+        </div>
+
+        <div style="margin: 3rem 0;">
+          <h2>Who This Is NOT For</h2>
+          <ul class="benefits-list" style="margin: 0;">
+            <li>Businesses looking for overnight results</li>
+            <li>Landscapers who don't answer phone calls</li>
+            <li>Anyone unwilling to follow up with leads</li>
+          </ul>
+        </div>
       `,
       faqs: [
         {
-          question: "How long does it take to build a landscaping website?",
+          question: "How much does a landscaping website cost?",
           answer:
-            "Most landscaping websites take 4-6 weeks to build, from initial design to launch. This includes design, development, content creation, and testing. We will work with you to ensure the timeline fits your needs.",
+            "Most landscaping websites start at $500 and scale based on pages, services, and features. Exact pricing is provided after a quick call where we understand your specific needs.",
         },
         {
-          question: "Can I update my website content myself?",
+          question: "How fast can my website go live?",
           answer:
-            "Yes! We build your landscaping website with an easy-to-use content management system. You can update photos, add new projects to your gallery, and edit content without needing technical knowledge.",
+            "Most landscaping websites take between 3 days and 2 weeks to complete, depending on the number of pages, content needed, and feedback speed. Simple sites can be launched very quickly, while larger builds may take closer to two weeks.",
         },
         {
-          question: "Will my website work on mobile devices?",
+          question: "Do I need photos or a logo?",
           answer:
-            "Absolutely! All our landscaping websites are fully responsive, meaning they look and work perfectly on phones, tablets, and desktops. Since most homeowners search for landscapers on mobile, this is essential.",
+            "No, you don't need anything to get started. We can work with what you have, or help you source professional photos and create a simple logo if needed. We'll discuss your options during our initial call.",
+        },
+        {
+          question: "What if I already have a website?",
+          answer:
+            "We can work with your existing website or build you a new one. During our call, we'll review your current site and discuss whether a redesign or new build makes more sense for your goals.",
+        },
+        {
+          question: "Is there a contract?",
+          answer:
+            "We keep things simple. After our initial call, if we're a good fit, we'll provide clear pricing and next steps. No long-term contracts required — just straightforward service that works.",
+        },
+      ],
+    },
+    "landscaping-digital-marketing": {
+      title: "Landscaping Digital Marketing | LDM",
+      h1: "Landscaping Digital Marketing: Grow Your Business with Proven Strategies",
+      heroHeading: "Landscaping Digital Marketing",
+      heroSubheading:
+        "We help landscaping companies attract qualified leads, book more jobs, and grow revenue through targeted online marketing campaigns.",
+      content: `
+        <p style="font-size: 1.1rem; color: var(--primary-blue); font-weight: 600; margin-bottom: 2rem; text-align: center;">If your website isn't bringing in jobs, it's costing you money.</p>
+
+        <div style="margin-bottom: 2rem;">
+          <h2>What is Landscaping Digital Marketing?</h2>
+          <p>Landscaping digital marketing is the strategic use of online channels to reach homeowners and commercial property managers who need landscaping services. Unlike generic marketing agencies, we specialize exclusively in the landscaping industry. We understand your seasonal cycles, your local competition, and what makes customers choose one landscaper over another.</p>
+          <p>Our approach combines search engine optimization (SEO), paid advertising, website optimization, and content marketing to create a complete system that generates leads year-round.</p>
+        </div>
+
+        <h2>Why Landscapers Need Digital Marketing</h2>
+        <p>Most landscaping companies rely on word-of-mouth and referrals. While those are valuable, they limit your growth. Here's what happens when you add digital marketing:</p>
+
+        <ul class="benefits-list">
+          <li><strong>Fill your schedule faster:</strong> Generate leads even during slow seasons when referrals dry up</li>
+          <li><strong>Reach customers actively searching:</strong> Show up when homeowners type "landscaper near me" or "lawn care services"</li>
+          <li><strong>Compete with larger companies:</strong> Level the playing field against big franchises with bigger ad budgets</li>
+          <li><strong>Build your brand:</strong> Establish your company as the go-to landscaping expert in your area</li>
+          <li><strong>Track your ROI:</strong> Know exactly which marketing dollars are bringing in paying customers</li>
+        </ul>
+
+        <h2>How Our Landscaping Digital Marketing Generates Leads</h2>
+
+        <h3>1. Search Engine Optimization (SEO)</h3>
+        <p>We optimize your website to rank on Google for keywords like "landscaping services [your city]" and "lawn maintenance near me." When homeowners search for landscaping help, your business appears at the top of results—before they even see your competitors.</p>
+        <p>Learn more about our <a href="/landscaping-seo">landscaping SEO services</a>.</p>
+
+        <h3>2. Paid Advertising Campaigns</h3>
+        <p>We create and manage Google Ads and Facebook Ads campaigns that target homeowners in your service area. You only pay when someone clicks your ad, and we optimize campaigns to maximize phone calls and quote requests.</p>
+        <p>Discover how <a href="/landscaping-ads">landscaping ads</a> can drive immediate results.</p>
+
+        <h3>3. Professional Website Design</h3>
+        <p>Your website is often the first impression potential customers have of your business. We build fast, mobile-friendly websites that showcase your work, make it easy to request quotes, and convert visitors into leads.</p>
+        <p>See our <a href="/landscaping-websites">landscaping website design services</a>.</p>
+
+        <h3>4. Content Marketing</h3>
+        <p>We create blog posts, guides, and resources that position you as the local landscaping expert. This content helps you rank for more keywords, builds trust with potential customers, and keeps your website fresh in Google's eyes.</p>
+
+        <h2>What Makes Us Different from Generic Marketing Agencies</h2>
+        <p>Most marketing agencies work with dozens of industries. We focus exclusively on landscaping companies. This specialization means:</p>
+
+        <ul class="benefits-list">
+          <li>We understand your seasonal business cycles and plan campaigns accordingly</li>
+          <li>We know which keywords actually convert (not just ones that sound good)</li>
+          <li>We create content that speaks to homeowners' real concerns about their yards</li>
+          <li>We track metrics that matter: phone calls, quote requests, and booked jobs—not just website visits</li>
+          <li>We've tested what works for landscapers and what doesn't, so you don't waste money on experiments</li>
+        </ul>
+
+        <div style="margin: 3rem 0; padding: 2rem; background: rgba(0, 102, 255, 0.05); border-radius: 16px;">
+          <h2 style="margin-top: 0;">This Is a Good Fit If…</h2>
+          <ul class="benefits-list" style="margin: 0;">
+            <li>You want more calls or quote requests from your website</li>
+            <li>You offer landscaping, lawn care, tree trimming, or yard services</li>
+            <li>You're tired of relying only on referrals</li>
+            <li>You want something simple that actually works</li>
+          </ul>
+        </div>
+
+        <div style="margin: 3rem 0;">
+          <h2>What Happens After You Submit?</h2>
+          <ol style="margin: 0; padding-left: 1.5rem; line-height: 2;">
+            <li>We review your business and online presence</li>
+            <li>We call you to understand your goals (10–15 minutes)</li>
+            <li>We give you clear pricing and next steps — no pressure</li>
+          </ol>
+        </div>
+
+        <div style="margin: 3rem 0; padding: 2rem; background: rgba(0, 102, 255, 0.05); border-radius: 16px;">
+          <h2 style="margin-top: 0;">Not Another Marketing Agency</h2>
+          <p style="margin: 0; line-height: 1.8;">We know most landscapers have tried marketing before — SEO that never ranked, ads that didn't convert, or agencies that overpromised. Our approach is simple: build systems that generate calls, track what works, and scale only when results are proven.</p>
+        </div>
+
+        <div style="margin: 3rem 0;">
+          <h2>Who This Is NOT For</h2>
+          <ul class="benefits-list" style="margin: 0;">
+            <li>Businesses looking for overnight results</li>
+            <li>Landscapers who don't answer phone calls</li>
+            <li>Anyone unwilling to follow up with leads</li>
+          </ul>
+        </div>
+      `,
+      faqs: [
+        {
+          question: "How much does landscaping digital marketing cost?",
+          answer:
+            "Pricing varies based on your goals, competition level, and service area. Most landscaping clients invest between $1,500–$3,000/month depending on market competition. We'll create a custom plan that fits your budget during our initial call.",
+        },
+        {
+          question: "How quickly will I see results?",
+          answer:
+            "Paid advertising can deliver phone calls within days of launch. SEO results typically start appearing in 3-6 months and compound over time. We'll discuss realistic timelines based on your specific situation during our call.",
+        },
+        {
+          question: "Do I need a website first?",
+          answer:
+            "Not necessarily. We can help you build a website as part of your digital marketing package, or work with your existing site. We'll review your current online presence and recommend the best approach for your goals.",
+        },
+        {
+          question: "Will this work for my local landscaping business?",
+          answer:
+            "Yes! Local digital marketing is especially effective for landscaping companies because homeowners search for services in their specific area. We optimize everything to target your service area and generate local leads.",
+        },
+        {
+          question: "Is there a contract?",
+          answer:
+            "We keep things simple. After our initial call, if we're a good fit, we'll provide clear pricing and next steps. No long-term contracts required — just straightforward service that works.",
         },
       ],
     },

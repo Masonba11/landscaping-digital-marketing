@@ -116,6 +116,20 @@ export default function ContactFormWebsites() {
       </div>
 
       <div className="form-group">
+        <label htmlFor="city" className="form-label">
+          City / Service Area <span className="required">*</span>
+        </label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          className="form-input"
+          required
+          placeholder="Your city or service area"
+        />
+      </div>
+
+      <div className="form-group">
         <label htmlFor="company" className="form-label">
           Company Name
         </label>
@@ -130,7 +144,7 @@ export default function ContactFormWebsites() {
 
       <div className="form-group">
         <label htmlFor="hasWebsite" className="form-label">
-          Do you have a website currently? <span className="required">*</span>
+          Do you currently have a website? <span className="required">*</span>
         </label>
         <div style={{ display: "flex", gap: "1rem", marginTop: "0.5rem" }}>
           <label
@@ -202,22 +216,6 @@ export default function ContactFormWebsites() {
         />
       </div>
 
-      <div className="form-group">
-        <label className="form-checkbox">
-          <input
-            type="checkbox"
-            name="budgetConfirmation"
-            value="yes"
-            required
-            className="form-checkbox-input"
-          />
-          <span className="form-checkbox-label">
-            I have $1,000 to invest into a website.{" "}
-            <span className="required">*</span>
-          </span>
-        </label>
-      </div>
-
       <input
         type="hidden"
         name="from_name"
@@ -234,6 +232,17 @@ export default function ContactFormWebsites() {
         </div>
       )}
 
+      <p
+        style={{
+          marginBottom: "1rem",
+          fontSize: "0.9rem",
+          color: "var(--dark-gray)",
+          textAlign: "center",
+        }}
+      >
+        You're not committing to anything — this just starts the conversation.
+      </p>
+
       <button
         type="submit"
         className="cta-button form-submit"
@@ -241,6 +250,18 @@ export default function ContactFormWebsites() {
       >
         {status === "loading" ? "Sending..." : "Get Started"}
       </button>
+
+      <p
+        style={{
+          marginTop: "1rem",
+          fontSize: "0.9rem",
+          color: "var(--dark-gray)",
+          lineHeight: "1.6",
+        }}
+      >
+        Most landscaping websites start at $500 and scale based on pages,
+        services, and features. Exact pricing is provided after a quick call.
+      </p>
     </form>
   );
 }
