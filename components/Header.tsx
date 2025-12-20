@@ -199,7 +199,7 @@ export default function Header() {
               gap: "0.5rem",
             }}
           >
-            📞 (480) 737-0850
+            (480) 737-0850
           </a>
         </nav>
       </div>
@@ -259,7 +259,7 @@ export default function Header() {
               }}
               onClick={closeMobileMenu}
             >
-              📞 Call: (480) 737-0850
+              Call: (480) 737-0850
             </a>
           </div>
         </div>

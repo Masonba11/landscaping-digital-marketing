@@ -241,7 +241,7 @@ export default function ContactForm() {
             transition: "all 0.3s ease",
           }}
         >
-          📞 Call Us Now: (480) 737-0850
+          Call Us Now: (480) 737-0850
         </a>
       </div>
     </form>
