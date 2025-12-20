@@ -184,6 +184,23 @@ export default function Header() {
           >
             Contact
           </button>
+          <a
+            href="tel:4807370850"
+            className="nav-link nav-link-cta nav-link-call"
+            style={{
+              backgroundColor: "var(--primary-blue)",
+              color: "white",
+              padding: "0.5rem 1rem",
+              borderRadius: "8px",
+              fontWeight: 600,
+              textDecoration: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
+            📞 (480) 737-0850
+          </a>
         </nav>
       </div>
 
@@ -225,6 +242,25 @@ export default function Header() {
             >
               Contact
             </button>
+
+            <a
+              href="tel:4807370850"
+              className="mobile-menu-item mobile-menu-cta"
+              style={{
+                backgroundColor: "var(--primary-blue)",
+                color: "white",
+                textAlign: "center",
+                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "0.5rem",
+                fontWeight: 600,
+              }}
+              onClick={closeMobileMenu}
+            >
+              📞 Call: (480) 737-0850
+            </a>
           </div>
         </div>
       )}
