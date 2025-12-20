@@ -152,6 +152,35 @@ export default function ContactForm() {
           className="form-input"
           placeholder="https://yourcompany.com"
         />
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            marginTop: "0.5rem",
+            fontSize: "0.9rem",
+            cursor: "pointer",
+          }}
+        >
+          <input
+            type="checkbox"
+            name="noWebsite"
+            value="yes"
+            style={{ cursor: "pointer" }}
+            onChange={(e) => {
+              const websiteInput = document.getElementById(
+                "website"
+              ) as HTMLInputElement;
+              if (e.target.checked) {
+                websiteInput.value = "";
+                websiteInput.disabled = true;
+              } else {
+                websiteInput.disabled = false;
+              }
+            }}
+          />
+          <span>I don't currently have one</span>
+        </label>
       </div>
 
       <div className="form-group">
